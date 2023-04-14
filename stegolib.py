@@ -15,6 +15,9 @@ def Encode(src, dest, message):
         n = 3
     elif img.mode == 'RGBA':
         n = 4
+    else:
+        img = img.convert('RGBA')
+        n = 4
 
     total_pixels = array.size//n
 
@@ -50,7 +53,8 @@ def Decode(src):
         n = 3
     elif img.mode == 'RGBA':
         n = 4
-
+    else:
+        return None
     total_pixels = array.size//n
 
     hidden_bits = ""
